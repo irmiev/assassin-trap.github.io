@@ -18,9 +18,16 @@ html {
 }
 
 body{
-  background-color: yellow;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
+  background: url("../img/artistpro-skull-7227532.svg");
+  background-size: 10%;
+  background-color: yellow;
+}
+
+#clue-header{
+  background-color: black;
+  color: yellow;
 }
 
 /*
