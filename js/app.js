@@ -1,0 +1,29 @@
+const QUERY_PARAM = "payload";
+const HEADER_ID = "clue-header";
+const VIDEO_ID = "video";
+
+window.onload = function () {
+    let payload = new URL(window.location).searchParams.get(QUERY_PARAM);
+    let header = document.getElementById(HEADER_ID);
+    let frame = document.getElementById(VIDEO_ID);
+
+    if(payload == null){
+        header.innerText = "What are you looking at?";
+        return 0;
+    }
+
+    
+    let data = JSON.parse(this.atob(payload));
+
+    let youtubeLink = data.link;
+    let iframe = `<iframe 
+    width="600" height="300" 
+    src="${youtubeLink}?autoplay=1&mute=1"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>`;
+
+    header.innerText = `You fell into trap #${data.trapId}`;
+    frame.innerHTML = iframe;
+}
