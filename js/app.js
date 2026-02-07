@@ -11,13 +11,12 @@ window.onload = function () {
         header.innerText = "What are you looking at?";
         return 0;
     }
-
     
     let data = JSON.parse(this.atob(payload));
 
     let youtubeLink = data.link;
     let iframe = `<iframe 
-    width="600" height="300" 
+    width="${window.innerWidth}" height="${window.innerWidth/2}" 
     src="${youtubeLink}?autoplay=1&mute=1"
     frameborder="0" 
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
